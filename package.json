@@ -1,0 +1,27 @@
+{
+  "name": "homework-josh-chaitin-pollak",
+  "version": "0.0.1",
+  "description": "JavaScript Micro-Services on Docker",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://jbcpollak@github.com/Kinvey/homework-josh-chaitin-pollak.git"
+  },
+  "keywords": [
+    "docker",
+    "microservices",
+    "cloud"
+  ],
+  "author": "Joshua Chaitin-Pollak",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kinvey/homework-josh-chaitin-pollak/issues"
+  },
+  "homepage": "https://github.com/Kinvey/homework-josh-chaitin-pollak#readme",
+  "dependencies": {
+    "hapi": "^10.0.1"
+  }
+}
