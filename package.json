@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/Kinvey/homework-josh-chaitin-pollak#readme",
   "dependencies": {
+    "dockerode-bluebird": "^1.0.4",
     "hapi": "^10.0.1"
   }
 }
