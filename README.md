@@ -8,7 +8,7 @@ It receives the code and a single parameter in an HTTP POST request, creates a d
 
 I consider this at the proof-of-concept stage. I figured out how to do all the basic requirements, but I don't consider the project up to `professional` standards. For specifics, see the `Remaining Work` section below. For an idea of a more polished project, please see:
 
-(ReactJS App)[]https://github.com/jbcpollak/react-depression-screener]
+(ReactJS Example App)[https://github.com/jbcpollak/react-depression-screener]
 
 
 
