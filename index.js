@@ -3,6 +3,7 @@
 var Hapi = require('hapi');
 var Docker = require("dockerode-bluebird");
 var fs = require("fs");
+var PassThrough = require('stream').PassThrough;
 
 var docker_cert_path = process.env.DOCKER_CERT_PATH || '';
 
@@ -45,7 +46,7 @@ docker.pullAsync(nodeImage).then(function(err, data) {
         }
     });
 
-    var dockerConfig = {
+    var dockerOptions = {
         Image: nodeImage,
         Tty: true,
         "WorkingDir": "/usr/src/app",
@@ -79,24 +80,36 @@ docker.pullAsync(nodeImage).then(function(err, data) {
         path: '/process',
         handler: function (request, reply) {
 
-            docker.createContainerAsync(dockerConfig).then( function(container) {
-                console.log('starting container = ' + container);
+            var passthrough = new PassThrough();
 
-                container.attach({stream: true, stdout: true, stderr: true}, function (err, stream) {
-                    reply(stream);
-                });
+            docker.runAsync(null, null, passthrough, dockerOptions).then(function(data) {
 
-                container.startAsync().then(function(err, data) {
-                    console.log("Data: " + data);
-                    container.removeAsync().then(function(err, data) {
-                        console.log("Container removed");
-                    });
+                reply(passthrough);
+                var container = data[1];
+                console.log("Container Id: ", container.Id);
+                container.removeAsync().then(function(err, data) {
+                    console.log("Container removed");
                 });
-            }).catch(function(error) {
-                console.log('container error = ' + error);
-            }).finally( function() {
-                console.log('container finally ');
             });
+
+            //docker.createContainerAsync(dockerConfig).then( function(container) {
+            //    console.log('starting container = ' + container);
+            //
+            //    container.attach({stream: true, stdout: true, stderr: true}, function (err, stream) {
+            //        reply(stream);
+            //    });
+            //
+            //    container.startAsync().then(function(err, data) {
+            //        console.log("Data: " + data);
+            //        container.removeAsync().then(function(err, data) {
+            //            console.log("Container removed");
+            //        });
+            //    });
+            //}).catch(function(error) {
+            //    console.log('container error = ' + error);
+            //}).finally( function() {
+            //    console.log('container finally ');
+            //});
         }
     });
 
