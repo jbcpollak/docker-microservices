@@ -43,6 +43,6 @@ Articles I read while implementing this
 
 Dependencies
 ==
-*   (HapiJS)[http://hapijs.com/]
-*   (Dockerode)[https://github.com/apocas/dockerode]
-*   (Dockerode-Bluebird)[https://github.com/Quobject/dockerode-bluebird]
+*   [HapiJS](http://hapijs.com/)
+*   [Dockerode](https://github.com/apocas/dockerode)
+*   [Dockerode-Bluebird](https://github.com/Quobject/dockerode-bluebird)
