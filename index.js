@@ -44,18 +44,19 @@ server.route({
     config: {
         payload:{
             maxBytes:209715200,
-            output:'stream',
-            parse: false
+            output: 'stream',
+            parse: true,
+            allow: 'multipart/form-data'
         }
     },
     handler: function (request, reply) {
 
-        spacer.create(request.payload, function(err, space) {
+        spacer.create(request.payload.app, function(err, space) {
 
             var passthrough = new PassThrough();
 
             reply(passthrough);
-            executor.run(space, passthrough, function() {
+            executor.run(space, passthrough, request.payload.param, function() {
                 spacer.cleanup(space);
             });
 

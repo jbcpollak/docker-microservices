@@ -22,7 +22,7 @@ var dockerOptions = {
     Image: nodeImage,
     Tty: true,
     "WorkingDir": "/usr/src/app",
-    Cmd: ["node","script.js","3"],
+    Cmd: ["node","script.js"],
     "HostConfig": {
         "Binds": []
     }
@@ -34,7 +34,7 @@ var Executor = function(opts) {
 };
 
 
-Executor.prototype.run = function(space, ostream, callback) {
+Executor.prototype.run = function(space, ostream, param, callback) {
     docker.pullAsync(nodeImage).then(function(err, data) {
 
         var opts = {};
@@ -43,7 +43,7 @@ Executor.prototype.run = function(space, ostream, callback) {
         extend(true, opts, dockerOptions);
 
         opts['HostConfig']['Binds'] = [ "" + space + ":/usr/src/app" ];
-        //opts['Cmd'] = ["ls", "-la"];
+        opts['Cmd'][2] = param;
 
         docker.runAsync(null, null, ostream, opts).then(function(data) {
 
