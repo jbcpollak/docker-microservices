@@ -8,7 +8,7 @@ It receives the code and a single parameter in an HTTP POST request, creates a d
 
 I consider this at the proof-of-concept stage. I figured out how to do all the basic requirements, but I don't consider the project up to `professional` standards. For specifics, see the `Remaining Work` section below. For an idea of a more polished project, please see:
 
-(ReactJS Example App)[https://github.com/jbcpollak/react-depression-screener]
+[ReactJS Example App](https://github.com/jbcpollak/react-depression-screener)
 
 
 
@@ -33,12 +33,12 @@ Remaining Work
 Articles I read while implementing this
 ==
 
-*   (Docker on OS X)[https://docs.docker.com/installation/mac/]
-*   (Getting Started with Docer for the NodeJS Dev)[https://www.airpair.com/node.js/posts/getting-started-with-docker-for-the-nodejs-dev]
-*   (Microservices, Node.js, Containers!)[https://www.airpair.com/node.js/posts/microservices-nodejs-containers]
-*   (Decking.io)[http://decking.io/]
-*   (Express / Koa / Hapi Comparison)[https://www.airpair.com/node.js/posts/nodejs-framework-comparison-express-koa-hapi]
-*   (Docker remote api on OS X)[http://opensolitude.com/2015/07/12/curl-docker-remote-api-os-x.html]
+*   [Docker on OS X]()https://docs.docker.com/installation/mac/)
+*   [Getting Started with Docer for the NodeJS Dev](https://www.airpair.com/node.js/posts/getting-started-with-docker-for-the-nodejs-dev)
+*   [Microservices, Node.js, Containers!](https://www.airpair.com/node.js/posts/microservices-nodejs-containers)
+*   [Decking.io](http://decking.io/)
+*   [Express / Koa / Hapi Comparison](https://www.airpair.com/node.js/posts/nodejs-framework-comparison-express-koa-hapi)
+*   [Docker remote api on OS X](http://opensolitude.com/2015/07/12/curl-docker-remote-api-os-x.html)
     This helped me figure out how to address the Docker container vm
 
 Dependencies
